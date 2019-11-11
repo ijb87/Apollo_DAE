@@ -1,0 +1,19 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "simple test app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijb87/Node.js-Tutorial-For-Absolute-Beginners.git"
+  },
+  "author": "Ihab Baghdadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ijb87/Node.js-Tutorial-For-Absolute-Beginners/issues"
+  },
+  "homepage": "https://github.com/ijb87/Node.js-Tutorial-For-Absolute-Beginners#readme"
+}

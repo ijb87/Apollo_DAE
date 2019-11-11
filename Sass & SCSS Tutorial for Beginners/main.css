@@ -1,0 +1,13 @@
+.button, .jumbo-button, .light-button {
+  background: #1636a0;
+  border-radius: 8px;
+  color: #FFF;
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none; }
+
+.jumbo-button {
+  padding: 35px; }
+
+.light-button {
+  background: #2151f0; }

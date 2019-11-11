@@ -1,0 +1,117 @@
+body {
+  font-family: arial;
+  background: #f8f9fb; }
+
+html, body, ul, ol, li, form, fieldset, legend {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0; }
+
+fieldset, img {
+  border: 0; }
+
+li {
+  list-style: none; }
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#main-nav {
+  background: #032F3E; }
+  #main-nav ul {
+    width: 100%; }
+    #main-nav ul:after {
+      content: "";
+      display: block;
+      color: both; }
+  #main-nav li {
+    float: left;
+    width: 16.66667%; }
+  #main-nav a {
+    color: #f8f9fb;
+    text-decoration: none;
+    padding: 16px;
+    display: block;
+    text-align: center; }
+  #main-nav:hover {
+    background: #333; }
+
+section h1 {
+  font-size: 24px;
+  color: #032F3E; }
+
+.lead-banner {
+  width: 100%;
+  position: relative;
+  color: white;
+  text-align: right; }
+  .lead-banner .banner-content {
+    position: absolute;
+    top: 50px;
+    width: 100%; }
+  .lead-banner img {
+    width: 100%; }
+  .lead-banner span {
+    font-size: 46px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .lead-banner span.title {
+    font-weight: normal;
+    margin-bottom: 30px; }
+
+.lessons-banner {
+  width: 100%;
+  position: relative;
+  color: white; }
+  .lessons-banner .banner-content {
+    position: absolute;
+    top: 50px;
+    width: 100%; }
+  .lessons-banner img {
+    width: 100%; }
+  .lessons-banner span {
+    font-size: 46px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .lessons-banner span.title {
+    font-weight: normal;
+    margin-bottom: 30px; }
+  .lessons-banner li {
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 60px 0; }
+
+#services {
+  margin-bottom: 60px; }
+  #services li {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    width: 33.33333%; }
+  #services img {
+    width: 60%;
+    margin: 20px 20%; }
+  #services a {
+    text-decoration: none;
+    color: #032F3E;
+    font-weight: bold; }
+    #services a:hover {
+      color: red; }
+  #services ul:after {
+    content: "";
+    display: block;
+    color: both; }
+
+#projects li img {
+  width: 100%; }

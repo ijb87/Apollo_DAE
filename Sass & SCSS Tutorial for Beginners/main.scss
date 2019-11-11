@@ -1,0 +1,22 @@
+$buttonBackground: #1636a0;
+$buttonColor: #FFF;
+$buttonPadding: 5px;
+
+.button{
+    background: $buttonBackground;
+    border-radius: 8px;
+    color: $buttonColor;
+    display: inline-block;
+    padding: $buttonPadding;
+    text-decoration: none;
+}
+
+.jumbo-button{
+    @extend .button;
+    padding: $buttonPadding + 30;
+}
+
+.light-button{
+    @extend .button;
+    background: $buttonBackground * 1.5;
+}
