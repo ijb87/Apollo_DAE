@@ -5,18 +5,22 @@
     <title>VueJS Tutorial</title>
     <link href="styles.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
   </head>
   <body>
+    <script src="app.js"></script>
     <div id="vue-app">
       <h1>Events</h1>
-      <button v-on:click="add(1)">Add a Year</button>
+      <button v-on:click.once="add(1)">Add a Year</button>
       <button v-on:click="subtract(1)">Subtract a Year</button>
       <button @click="add(10)">Add 10 Years</button>
       <button v-on:click="subtract(10)">Subtract 10 Years</button>
       <p>My age is {{ age }}</p>
       <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}
+      <a v-on:click.prevent="click" href="http://www.thenetninja.co.uk">The Net Ninja</a>
       </div>
+      <script src="app.js"></script>
     </div>
-    <script src="app.js"></script>
+
   </body>
 </html>
