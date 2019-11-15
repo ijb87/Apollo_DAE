@@ -1,16 +1,40 @@
-span{
-  background: red;
-  display: inline-block;
-  padding: 10px;
-  color: #fff;
-  margin: 10px 0;
+#bag {
+  width: 200px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("img/bag.png") no-repeat center;
+  background-size: 80%;
 }
 
-.available span{
+#bag.burst{
+  background: url("img/bag-burst.png") no-repeat center;
+  background-size: 80%;
+}
+
+#bag-health{
+  width: 200px;
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+}
+
+#bag-health div{
+  height: 20px;
   background: green;
 }
 
-.nearby span:after{
-  content: "nearby";
-  margin-left: 10px;
+#controls {
+  width: 120px;
+  margin: 0 auto;
+}
+
+#red-bag-health{
+  width: 200px;
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+}
+
+#red-bag-health div{
+  width: 100px;
+  height: 20px;
+  background: red;
 }

@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>VueJS Tutorial</title>
-    <link href="styles.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <!-- bag image -->
+            <div id="bag" v-bind:class="{ burst: ended }"></div>
 
-  </head>
-  <body>
-    <div id="vue-app">
-      <h1>Looping through lists</h1>
-      <ul>
-        <li v-for="(character, index) in characters">{{ index }} . {{ character }}</li>
-      </ul>
-      <ul>
-        <li v-for="(ninja, index) in ninjas">{{ index }} . {{ ninja.name }} - {{ ninja.age }}</li>
-      </ul>
-      <template v-for="(ninja, index) in ninjas">
-        <h3>{{ index }} . {{ ninja.name }}</h3>
-        <p>{{ ninja.age }}</p>
-      </template>
-      <template v-for="ninja in ninjas">
-        <div v-for="(val, key) in ninja">
-          <p>{{ key }} - {{ val }}</p>
+            <!-- bag health bar -->
+            <div id="bag-health" v-if="health>50">
+              <div v-bind:style="{ width: health + '%'}">
+                  </div>
+                </div>
+            <div id="red-bag-health" v-else>
+              <div v-bind:style= "{ width: health + '%'}">
+                </div>
+              </div>
+
+            <!-- game control buttons -->
+            <div id="controls">
+                <button v-on:click="punch" v-show="!ended">Punch</button>
+                <button v-on:click="restart">Restart</button>
+            </div>
         </div>
-      </template>
-    </div>
+    </body>
 
     <script src="app.js"></script>
-  </body>
 </html>

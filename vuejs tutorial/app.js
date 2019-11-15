@@ -1,16 +1,23 @@
 new Vue({
-  el:'#vue-app',
-  data: {
-    characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
-    ninjas: [
-      { name: 'Ryu', age 25 },
-      { name: 'Yoshi', age: 35 },
-      { name: 'Ken', age: 55 }
-    ]
-  },
-  methods: {
-    
-  },
-  computed: {
-  }
+    el: '#vue-app',
+    data: {
+        health: 100,
+        ended: false,
+        turnRed: false
+    },
+    methods: {
+        punch: function(){
+            this.health -= 10;
+            if ( this.health <= 0 ){
+                this.ended = true;
+            }
+        },
+        restart: function(){
+            this.health = 100;
+            this.ended = false;
+        }
+    },
+    computed: {
+
+    }
 });
