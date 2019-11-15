@@ -23,7 +23,7 @@
 
             <!-- game control buttons -->
             <div id="controls">
-                <button v-on:click="punch" v-show="!ended">Punch</button>
+                <button v-on:click="punch" v-show="!ended" @click.prevent="playSound('punch.wav')">Punch</button>
                 <button v-on:click="restart">Restart</button>
             </div>
         </div>
