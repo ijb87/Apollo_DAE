@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset = "utf-8" />
-  <title>VueJS Tutorials</title>
-  <link href="styles.css" rel="stylesheet"  />
-  <script src="https://unpkg.com/vue"></script>
+  <head>
+    <meta charset = "utf-8" />
+    <title>VueJS Tutorials</title>
+    <link href="styles.css" rel="stylesheet"  />
+    <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-  <h1>Multiple Vue Instances</h1>
-  <div id="vue-app-one">
-  <h2>Vue app two</h2>
-  <greeting></greeting>
-  </div>
+    <h1>Refs</h1>
+    <div id="vue-app-one">
+      <input type="text" ref="input" value="">
+      <button v-on:click="readRefs">Submit</button>
+      <p>Your fav food: {{ output }}</p>
+    </div>
 
-  <div id="vue-app-two">
-    <h2>Vue app two</h2>
-    <greeting></greeting>
-  </div>
+    <div ref="test">
+      Hello
+    </div>
 
   <script src="app.js"></script>
   </body>
