@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 import Ninjas from './Ninjas.vue'
 
 export default {
@@ -20,5 +21,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+h1{
+  color: purple
+}
 </style>
