@@ -7,6 +7,11 @@
 <script>
 
 export default {
+  props: {
+    title: {
+      type: String
+    }
+  },
   data() {
     return {
       copyright: 'Copyright 2017 Vue Ninjas'
