@@ -3,10 +3,9 @@
     <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
     <ul>
-      <li v-for="ninja in ninjas"> {{ ninja.name }}
-      </li>
+      <li v-for="ninja in ninjas">{{ ninja.name }}</li>
     </ul>
-    <app-footer v-bind:title="title" on:changeTitle="updateTitle($event)"></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -31,11 +30,12 @@ export default {
                 {name: 'Kami', speciality: 'Webpack', show: false},
                 {name: 'Yoshi', speciality: 'Data Diggin', show: false}
             ],
-            title: "Vue"
+            title: "Vue Wizards"
     }
   },
+  
   methods: {
-    updateTitle: function(updatedTitle) {
+    updateTitle: function(updatedTitle){
       this.title = updatedTitle
     }
   }
