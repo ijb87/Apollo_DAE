@@ -7,15 +7,20 @@
             <label>Blog Content:</label>
             <textarea v-model.lazy.trim="blog.content"></textarea>
             <div id="checkboxes">
-              <label>Ninjas</label>
-              <input type="checkbox" value="ninjas" v-model="blog.categories"/>
-              <label>Wizards</label>
-              <input type="checkbox" value="wizards" v-model="blog.categories"/>
-              <label>Mario</label>
-              <input type="checkbox" value="mario" v-model="blog.categories"/>
-              <label>Cheese</label>
-              <input type="checkbox" value="cheese" v-model="blog.categories"/>
+                <p>Blog Categories:</p>
+                <label>Ninjas</label>
+                <input type="checkbox" value="ninjas" v-model="blog.categories" />
+                <label>Wizards</label>
+                <input type="checkbox" value="wizards" v-model="blog.categories" />
+                <label>Mario</label>
+                <input type="checkbox" value="mario" v-model="blog.categories" />
+                <label>Cheese</label>
+                <input type="checkbox" value="cheese" v-model="blog.categories" />
             </div>
+            <label>Author:</label>
+            <select v-model="blog.author">
+                <option v-for="author in authors">{{ author }}</option>
+            </select>
         </form>
         <div id="preview">
             <h3>Preview blog</h3>
@@ -24,8 +29,9 @@
             <p style="white-space: pre">{{ blog.content }}</p>
             <p>Blog Categories:</p>
             <ul>
-              <li v-for="category in blog.categories">{{ category }}</li>
+                <li v-for="category in blog.categories">{{ category }}</li>
             </ul>
+            <p>Author: {{ blog.author }}</p>
         </div>
     </div>
 </template>
@@ -38,8 +44,10 @@ export default {
             blog: {
                 title: '',
                 content: '',
-                categories: []
-            }
+                categories: [],
+                author: ''
+            },
+            authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator']
         }
     },
     methods: {
@@ -73,10 +81,11 @@ h3{
     margin-top: 10px;
 }
 #checkboxes input{
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
 #checkboxes label{
-  display: inline-block;
+    display: inline-block;
+    margin-top: 0;
 }
 </style>
