@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>VueApp</title>
+  </head>
+  <body>
+    <div id="app">
+      <span v-once>{{msg}}</span>
+      <span v-text="msg"></span>
+      <span v-html="msg"></span>
+      <a v-bind:href="url">Click</a>
+      <h2>{{foo ? 'YES' : 'NO'}}</h2>
+    </div>
+    <script>
+let app = new Vue({
+  el: '#app',
+  data: {
+    msg: 'Hello World!',
+    age: 4,
+    user: {
+      name: 'John Doe',
+      email: 'jon@gmail.com'
+    },
+    url: 'http://google.com',
+    foo: true
+  }
+})
+    </script>
+  </body>
+</html>

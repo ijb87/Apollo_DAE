@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>VueApp</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(user, index) in users">
+          {{index}} - {{user.name}}: {{user.email}}
+        </li>
+      </ul>
+
+      <div v-for="(value, key, index) in user">
+        {{index}} - {{key}}: {{value}}
+      </div>
+
+      <div v-for="n in 10">
+        {{n}}
+      </div>
+
+      <h1 v-if="status == 'active'">
+        status is active
+      </h1>
+
+      <h1 v-else-if="status == 'expired'">
+        status is expired
+      </h1>
+
+      <h1 v-else="status">
+        status is not active
+      </h1>
+    </div>
+
+
+    <script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    msg: 'Hello World!',
+    users: [
+      { name: 'John Doe', email: 'john@gmail.com' },
+      { name: 'Steve Smith', email: 'steve@gmail.com' },
+      { name: 'Jane Doe', email: 'jane@yahoo.com' }
+    ],
+    user: {
+      name: 'John Doe', email: 'john@gmail.com'
+    },
+    status: 'test'
+  }
+})
+    </script>
+  </body>
+</html>
