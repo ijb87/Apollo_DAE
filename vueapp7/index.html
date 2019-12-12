@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta charset="utf-8">
+  <title>VueApp</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="">
+      <button v-on:click="counter += 1">Add 1</button>
+      <p>
+        You clicked the button {{ counter }} times
+        </p>
+    </div>
+
+      <div>
+        <button class="btn" v-on:click="greet('Hello World', $event)">Click</button>
+      </div>
+
+      <div>
+        <input type="text" v-on:keyup="keypress" v-on:keypress.enter="keySubmit">
+      </div>
+
+      <div>
+        <form v-on:submit="formSubmit">
+          <input type="text" placeholder="Enter something" v-model="msg">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <div>
+        <form v-on:submit="formSubmit">
+          <input type="text" placeholder="Enter something" v-model="msg">
+          <input type="button" value="Enter" v-on:click="buttonSubmit">
+        </form>
+      </div>
+      <!-- added another input and button to output message -->
+  </div>
+  <script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    msg: 'something',
+    counter: 0
+  },
+  methods: {
+    greet: function (greeting, event) {
+      window.alert(greeting)
+      // alert(greeting)
+      // console.log(event.target.tagName)
+      console.log(event.target.className)
+    },
+    keypress: function (event) {
+      console.log(event.target.value)
+    },
+    keySubmit: function (event) {
+      console.log('Enter Hit...')
+    },
+    formSubmit: function () {
+      window.alert(this.msg)
+    },
+    pageDown: function () {
+      window.alert(this.msg)
+    },
+    buttonSubmit: function () {
+      window.alert(this.msg)
+    }
+  }
+})
+  </script>
+</body>
+
+</html>
