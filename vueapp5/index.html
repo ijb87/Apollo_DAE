@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta charset="utf-8">
+  <title>VueApp</title>
+  <style>
+    .active {
+      color: green;
+      font-size: 20px;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div v-bind:class="{activeClass, errorClass}">
+      Hello World!
+    </div>
+    <div v-bind:style="baseStyles, errorStyles">
+      Hello World
+      </div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        isActive: false,
+        activeClass: 'active',
+        errorClass: 'error',
+        baseStyles: {
+          color: 'blue',
+          fontSize: '50px',
+          textDecoration: 'underline'
+        },
+        errorStyles: {
+          color: 'red',
+          fontSize: '50px'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
