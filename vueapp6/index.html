@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta charset="utf-8">
+  <title>VueApp</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input v-model="msg" placeholder="Enter Message" type="text"  />
+      <p>
+        {{msg}}
+        </p>
+
+      </div>
+      <div>
+        <input type="checkbox" v-model="checked" />
+        <p>
+          {{checked}}
+          </p>
+      </div>
+
+      <div>
+        <input type="checkbox" value="Mike" v-model="checkedNames" />
+        <label>Mike</label>
+        <input type="checkbox" value="Steve" v-model="checkedNames" />
+        <label>Steve</label>
+        <input type="checkbox" value="Jill" v-model="checkedNames" />
+        <label>Jill</label>
+        <p>
+          Checked Names: {{checkedNames}}
+          </p>
+      </div>
+
+      <div>
+        <input type="radio" value="One" v-model="radioPicks" />
+        <label>One</label>
+        <input type="radio" value="Two" v-model="radioPicks" />
+        <label>Two</label>
+        <input type="radio" value="Three" v-model="radioPicks" />
+        <label>Three</label>
+        <p>
+          Radio Pick: {{radioPicks}}
+          </p>
+      </div>
+
+      <div>
+        <select v-model="selected">
+          <option>
+            One
+          </option>
+          <option>
+            Two
+          </option>
+          <option>
+            Three
+          </option>
+        </select>
+        <p>
+          Selected: {{selected}}
+          </p>
+      </div>
+
+      <div>
+        <select multiple v-model="selectedOpt">
+          <option v-for="option in options" v-bind: value="option.value">
+            {{option.text}}
+            </option>
+        </select>
+        <p>
+          Selected: {{selectedOpt}}
+          </p>
+      </div>
+
+  </div>
+  <script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    msg: '',
+    checked: false,
+    checkedNames: [],
+    radioPicks: '',
+    selected: '',
+    options: [
+      { text: 'One', value: 'A' },
+      { text: 'Two', value: 'B' },
+      { text: 'Three', value: 'C' }
+    ],
+    selectedOpt: ''
+  }
+})
+  </script>
+</body>
+
+</html>
