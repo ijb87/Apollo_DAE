@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      h1{
+        background: coral;
+        color: #fff;
+        padding: 5px;
+      }
+      
+      .fade-enter-active, .fade-leave-active{
+        transition: opacity 1s;
+      }
+      
+      .fade-enter, .fade-leave-active{
+        opacity: 0;
+      }
+      
+      .slide-fade-enter-active {
+        transition: all .3s ease;
+      }
+      
+      .slide-fade-leave-active {
+        transition: all .8s cubic bazier(1, 0.5, 0.8, 1);
+      }
+      
+      .slide-fade-enter, .slide-fade-leave-active {
+        margin-top: -100px;
+        padding-left: 1000px;
+        opacity: 0;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>VueApp</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="show = !show">Click</button>
+      
+      <!-- <transition name="fade">
+        <h1 v-if="show">Hello World</h1>
+      </transition> -->
+    <transition name="slide-fade">
+      <h1 v-if="show">
+        hello
+        </h1>
+    </transition>
+    </div>
+    
+    <script>
+let app = new Vue({
+  el: '#app',
+  data: {
+    msg: 'Hello World!',
+    show: true
+    }
+})
+    </script>
+  </body>
+</html>
