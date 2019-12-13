@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Ask Me Anything</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+    <style>
+
+    </style>
+    <meta charset="utf-8">
+    </head>
+      <body>
+        <div id="app">
+          <div class="container text-center">
+            <h1>Ask A Question</h1>
+            <h5>Must be a yes/no question</h5>
+            <input class="form-control" v-model="question" />
+            <br /><br />
+            <h2>{{ answer }}</h2>
+            <img vbind:src="image" />
+          </div>
+        </div>
+
+        <script>
+let app = new Vue({
+  el: '#app',
+  data: {
+    question: '',
+    answer: '',
+    image: ''
+  },
+  watch: {
+    question: function (newQuestion) {
+      this.answer = 'Typing...'
+      this.getAnswer()
+    }
+  },
+  methods: {
+    getAnswer: _.debounce(
+      function () {
+        const vm = this
+        if (this.question.indexOf('?') === -1) {
+          vm.answer = 'Questions usually have a question mark'
+          return
+        }
+        vm.answer = 'Thinking...'
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+            vm.image = response.data.image
+          })
+          .catch(function (err) {
+            vm.answer = 'Error: ' + err
+          })
+      }, 500
+    )
+  }
+})
+        </script>
+      </body>
+</html>
