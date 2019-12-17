@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title>VueApp</title>
+  </head>
+  <body>
+    <div id="app">
+      <hello></hello>
+    </div>
+
+<script>
+var Hello = {
+  name: 'hello',
+  props: {
+    msg: {
+      type: String,
+      default: 'Hello World'
+    },
+    msg2: {
+      type: [Number, String],
+      default: 3
+    },
+    msg3: {
+      type: Object,
+      default: function () {
+        return {
+          text: 'Goodbye'
+        }
+      }
+    },
+    msg4: {
+      default: function () {
+        return 'I am a function'
+      }
+    },
+    msg5: {
+      default: function () {
+        return (3 + 5)
+      }
+    }
+    // added component that returns mathematical result
+  },
+  template: '<h1>{{msg5}}</h1>'
+}
+
+let app = new Vue({
+  el: '#app',
+  components: {
+    Hello
+  },
+  data: {
+    msg: 'Hello World!'
+  }
+})
+
+
+    </script>
+  </body>
+</html>
