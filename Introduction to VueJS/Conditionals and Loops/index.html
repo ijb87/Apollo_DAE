@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+      <span v-if="!notSeen">Now you don't...oh wait you can...</span>
+      <!-- since notSeen is true at first, this will not appear -->
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- enter app3.seen = false into console and text will disappear -->

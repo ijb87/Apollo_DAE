@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
+
+<!-- In the console, enter app4.todos.push({ text: 'New item' }). You should see a new item appended to the list. -->
