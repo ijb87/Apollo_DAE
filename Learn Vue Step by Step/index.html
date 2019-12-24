@@ -3,15 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+      .is-loading { background: red; }
+    </style>
   </head>
   <body>
     <div id="root">
-      <ul>
-        <li v-for="name in names" v-text='name'></li>
-      </ul>
-
-      <input type="text" id="input" v-model="newName">
-      <button @click="addName">Add Name</button>
+      <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -19,8 +17,10 @@
 var app = new Vue({
   el: '#root',
   data: {
-    newName: '',
-    names: ['Joe', 'Mary', 'Jane', 'Jack']
+    className: 'color-red',
+    isLoading: false
+
+    // this.isLoading = true
   },
 
   methods: {
@@ -28,6 +28,9 @@ var app = new Vue({
       this.names.push(this.newName)
 
       this.newName = ''
+    },
+    toggleClass () {
+      this.isLoading = true
     }
   }
 })
