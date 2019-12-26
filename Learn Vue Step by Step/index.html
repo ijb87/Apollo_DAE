@@ -2,21 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>My App</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   </head>
   <body>
     <div id="root" class="container">
-      <modal>
-        <template slot="header">
-          My Title
-        </template>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        <template slot="footer">
-          <a class="button is-primary">Save changes</a>
-          <a class="button">Cancel</a>
-        </template>
-      </modal>
+      <progress-view inline-template>
+        <div>
+          <h1>Your Progress Through This Course Is {{ completionRate }}</h1>
+          <p>
+            <button @click="completionRate += 10">Update Completion Rate</button>
+          </p>
+        </div>
+        
+      </progress-view>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
