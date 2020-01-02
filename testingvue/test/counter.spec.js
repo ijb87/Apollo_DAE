@@ -1,6 +1,6 @@
 import { mount } from 'vue-test-utitls'
-import Counter from '../src/components/Counter.vue'
 import expect from 'expect'
+const path = require('path')
 
 describe ('Counter', () => {
   let wrapper
@@ -31,7 +31,7 @@ describe ('Counter', () => {
     expect(wrapper.vm.count).toBe(0)
   })
 
-it.only ()'never goes below 0', () => {
+it.only ('never goes below 0', () => {
   expect(wrapper.vn.count).toBe(0)
   
   expect(wrapper.find('.decrement').hasStyle('display', 'none')).toBe(true)
