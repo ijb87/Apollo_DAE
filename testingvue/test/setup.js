@@ -1,0 +1,1 @@
+require('jsdom-global')(); 554 (gzipped: 305)
