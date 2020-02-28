@@ -1,0 +1,8 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" actionBarHidden="true">
+  <GridLayout>
+    <!-- Define the container for the physics scene -->
+    <GridLayout id="container"/>
+    <!-- Label for meta info is not required -->
+    <Label id="meta"/>
+  </GridLayout>
+</Page>
