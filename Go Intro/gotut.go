@@ -1,21 +1,18 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func foo() {
-  defer wg.Done()
-  for i := 0; i < 3; i++ {
-    time.Sleep(100*time.Millisecond)
-    fmt.Println(s)
-  }
+func foo(c chan int, someValue int){
+  c <- someValue * 5
 }
 
-func main() {
-	wg.Add(1)
-	go say("Hey")
-	wg.Add(1)
-	go say("there")
-	wg.Wait()
+func main()  {
+  fooVal := make(chan int)
+
+  go foo(fooVal, 5)
+  go foo(fooVal, 3)
+
+  v1, v2 := <- fooVal, <- fooVal
+
+  fmt.Println(v1, v2)
 }
