@@ -1,18 +1,26 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "sync"
+)
 
 func foo(c chan int, someValue int){
+  defer wg.Done()
   c <- someValue * 5
 }
 
 func main()  {
-  fooVal := make(chan int)
+  fooVal := make(chan int, 10)
+  for i := 0; i < 10; i++ {
+    wg.Add(1)
+    go foo(fooVal, i)
+  }
 
-  go foo(fooVal, 5)
-  go foo(fooVal, 3)
+  wg.Wait()
+  close(fooVal)
 
-  v1, v2 := <- fooVal, <- fooVal
-
-  fmt.Println(v1, v2)
+  for item := range fooVal {
+    fmt.Println(item)
+  }
 }
