@@ -1,36 +1,22 @@
 package main
 
-import (
-	"encoding/xml"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-)
-
-type Sitemapindex struct {
-	Locations []string `xml:"sitemap>loc"`
-}
-
-type News struct {
-  Titles []string `xml:"url>news>title"`
-  Keywords []string `xml:"url>news>Keywords"`
-  Locations [string] `xml:sitemap>loc`
-}
-
+import "fmt"
 func main() {
-  var s Sitemapindex
-  var n News
+  grades := make(map[string] float32)
 
-	resp, _ := http.Get("https://www.washingtonpost.com/news-sitemap-index.xml")
-	bytes, _ := ioutil.ReadAll(resp.Body)
+  grades["Timmy"] = 42
+  grades["Jess"] = 92
+  grades["Sam"] = 67
 
-	xml.Unmarshal(bytes, &s)
-	//fmt.Println(s.Locations)
+  fmt.Println(grades)
 
-	for _, Location := range s.Locations {
-    resp, _ := http.Get("Location")
-  	bytes, _ := ioutil.ReadAll(resp.Body)
+  TimsGrade := grades["Timmy"]
+  fmt.Println(TimsGrade)
 
-  	xml.Unmarshal(bytes, &n)
-	}
+  delete(grades, "Timmy")
+  fmt.Println(grades)
+
+  for k, v := range grades {
+    fmt.Println(k, ":", v)
+  }
 }
