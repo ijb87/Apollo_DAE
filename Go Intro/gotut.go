@@ -1,19 +1,18 @@
 package main
 
-import "fmt"
+import ("fmt"
+        "net/http")
+
+func index_handler(w http.ResponseWriter, r *http.Request)  {
+  fmt.Fprintf(w, "Whoa, Go is neat!")
+}
+
+func about_handler(w http.ResponseWriter, r *http.Request)  {
+  fmt.Fprintf(w, "Expert web design by Ihab")
+}
 
 func main() {
-  x := 15
-  a := &x // point to x (memory address)
-  fmt.Println(a) // prints out the mem addr.
-  fmt.Println(*a) // read a through the pointer, so this will print out a value (15 in this case)
+  http.HandleFunc("/", index_handler)
+  http.ListenAndServe(":8000", nil) // creates server at port 8000
 
-  *a = 5 // sets the value pointed at to 5, which means x is modified (since x is stored at the mem addr)
-  fmt.Println(x) // see the new value of x
-  *a = *a**a // what is the value of x now?
-  fmt.Println(x) // prints a value
-  fmt.Println(*a) // prints a value
-
-  fmt.Println(&x) // prints a memory address
-  fmt.Println(a) // prints a memory address
 }
