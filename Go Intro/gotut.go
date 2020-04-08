@@ -1,17 +1,41 @@
 package main
 
+// <sitemapindex>
+//    <sitemap>
+//       <loc>http://www.washingtonpost.com/news-politics-sitemap.xml</loc>
+//    </sitemap>
+//    <sitemap>
+//       <loc>http://www.washingtonpost.com/news-blogs-politics-sitemap.xml</loc>
+//    </sitemap>
+//    <sitemap>
+//       <loc>http://www.washingtonpost.com/news-opinions-sitemap.xml</loc>
+//    </sitemap>
+// </sitemapindex>
+
 import ("fmt"
-        "net/http")
+        "net/http"
+        "io/ioutil"
+        "encoding/xml")
 
-func index_handler(w http.ResponseWriter, r *http.Request)  {
+type SitemapIndex struct {
+  Locations []Location `xml:"sitemap"`
+}
 
-fmt.Fprintf(w, `
-    <h1>Hey there</h1>
-    <p>Go is fast!</p>
-    <p>...and simple!</p>
-  `)
+type Location struct {
+  Loc string `xml:"loc"`
+}
+
+func (L Location) String() string {
+  return fmt.Sprintf(l.Loc)
+}
 
 func main() {
-  http.HandleFunc("/", index_handler)
-  http.ListenAndServe(":8000", nil)
+  resp, _ := http.Get("http://www.washingtonpost.com/news-sitemap-index.xml")
+  bytes, _ := ioutil.ReadAll(resp.Body)
+  resp.Body.Close()
+
+  var s SitemapIndex
+  xml.Unmarshal(bytes, &s)
+
+  fmt.Println(s.Locations)
 }
